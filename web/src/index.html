@@ -1,3 +1,9 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Tensorflow JS Tokyo Worksuop</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+      </head>
 <!-- Load TensorFlow.js. This is required to use MobileNet. -->
 <!-- <script src="http://unpkg.com/@tensorflow/tfjs@1.0"></script> -->
 <!-- Load the MobileNet model. -->
@@ -7,10 +13,11 @@
 <div style='display: flex'>
   <img id="img" src="coffee.jpg"/>
   <!-- <img id="img" src="cat.jpg"/> -->
-  <table id="predictions">
+  <table id="predictions" class="table">
     <tr>
-      <th align="right">Class</th>
-      <th align="right">Probability</th> 
+      <th align="right" scope="col">Class</th>
+      <th align="right" scope="col">Probability</th> 
     </tr>
   </table>
   </div>
+</html>
