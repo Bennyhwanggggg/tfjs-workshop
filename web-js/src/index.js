@@ -23,7 +23,7 @@ const MOBILENET_MODEL_PATH =
     // tslint:disable-next-line:max-line-length
     'https://storage.googleapis.com/tfjs-models/tfjs/mobilenet_v1_0.25_224/model.json';
 
-const IMAGE_SIZE = 224;
+const IMAGE_SIZE = 64;
 const TOPK_PREDICTIONS = 10;
 
 let mobilenet;
@@ -31,10 +31,12 @@ const mobilenetDemo = async () => {
   console.log('Loading model...');
 
   // Pretrained model
-  mobilenet = await tf.loadLayersModel(MOBILENET_MODEL_PATH);
+  // mobilenet = await tf.loadLayersModel(MOBILENET_MODEL_PATH);
 
   // Load your own model
-  // mobilenet = await tf.loadLayersModel('./mymobilenet/mode.json');
+  const modelurl = 'https://storage.googleapis.com/foodai/model2_5.json';
+  mobilenet = await tf.loadLayersModel(modelurl, false);
+  console.log('loaded custom model');
 
   // Warmup the model. This isn't necessary, but makes the first prediction
   // faster. Call `dispose` to release the WebGL memory allocated for the return
@@ -43,6 +45,7 @@ const mobilenetDemo = async () => {
 
   // Make a prediction through the locally hosted cat.jpg.
   const catElement = document.getElementById('img');
+  console.log(catElement)
   if (catElement.complete && catElement.naturalHeight !== 0) {
     predict(catElement);
     catElement.style.display = '';
